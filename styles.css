@@ -1,916 +1,143 @@
-/* ========================================================== */
-/* CONFIGURACIÓN GLOBAL Y TIPOGRAFÍA                          */
-/* ========================================================== */
-* {
-  font-family: 'Zodiak', serif !important;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* ========================================================== */
-/* NAVBAR Y COMPONENTES GLOBALES                              */
-/* ========================================================== */
-.navbar,
-.custom-navbar {
-  background-color: #080B14 !important;
-  position: relative;
-  z-index: 10;
-}
-
-.custom-navbar .navbar-brand,
-.custom-navbar .nav-link {
-  color: #ffffff !important;
-}
-
-.custom-navbar .nav-link:hover,
-.custom-navbar .nav-link.active {
-  color: #cccccc !important;
-}
-
-.custom-navbar .navbar-toggler-icon {
-  filter: invert(1);
-}
-
-/* ========================================================== */
-/* BOTÓN UIVERSE (.btn2)                                      */
-/* ========================================================== */
-.btn2 {
-  position: relative;
-  display: inline-block;
-  padding: 8px 16px;
-  border: 2px solid #fefefe;
-  text-transform: uppercase;
-  color: #fefefe !important;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-  transition: 0.3s;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.btn2::before,
-.btn2::after {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  width: calc(100% + 4px);
-  background-color: #080B14;
-  transition: 0.3s ease-out;
-  transform: scaleY(1);
-}
-
-.btn2::before {
-  height: calc(100% + 4px);
-}
-
-.btn2::after {
-  height: calc(100% - 10px);
-}
-
-.btn2:hover::before {
-  transform: translateY(-15px);
-  height: 0;
-}
-
-.btn2:hover::after {
-  transform: scaleX(0);
-  transition-delay: 0.15s;
-}
-
-.btn2:hover {
-  border: 2px solid #fefefe;
-}
-
-.btn2 .spn2 {
-  position: relative;
-  z-index: 3;
-  text-decoration: none;
-  border: none;
-  background-color: transparent;
-}
-
-/* ========================================================== */
-/* SECCIÓN HERO                                               */
-/* ========================================================== */
-.hero-wrapper {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
-.hero-wrapper::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/ertoldospersianas/imagenes/fondo.jpg');
-  background-size: cover;
-  background-position: center;
-  filter: blur(8px);
-  transform: scale(1.05);
-  z-index: 1;
-  animation: difuminarFondo 4.5s ease-out forwards; 
-}
-
-.hero-wrapper > * {
-  position: relative;
-  z-index: 2;
-}
-
-@keyframes difuminarFondo {
-  from { filter: blur(0px); }
-  to { filter: blur(8px); }
-}
-
-@keyframes subirTexto {
-  from {
-    opacity: 0;
-    transform: translateY(60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  min-height: auto;
-  padding: 50px 20px 0 5%;
-  box-sizing: border-box;
-}
-
-.texto-animado {
-  position: relative;
-  z-index: 1;
-  max-width: 700px;
-  text-align: left;
-  opacity: 0;
-  animation: subirTexto 3.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.texto-animado h1 {
-  color: #ffffff;
-  font-size: 4.5rem;
-  font-weight: 1000;
-  line-height: 1.2;
-  margin-bottom: 15px;
-}
-
-.texto-animado p {
-  color: #ffffff;
-  font-size: 1.5rem;
-  margin: 0;
-}
-
-.texto-animado h1 span.linea-roja {
-  position: relative;
-  display: inline-block;
-}
-
-.texto-animado h1 span.linea-roja::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 100%;
-  height: 6px;
-  background-color: #e63946;
-  border-radius: 4px;
-}
-
-/* ========================================================== */
-/* TARJETA DUEÑO (HERO) Y BOTÓN                               */
-/* ========================================================== */
-.card-owner-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 30px 0 45px 0;
-  position: relative;
-  z-index: 5;
-}
-
-.custom-card {
-  width: 100%;
-  max-width: 280px;
-  border: none;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-  background-color: #ffffff;
-}
-
-.card-animada-Hero {
-  opacity: 0;
-  animation: subirTexto 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.card-img-wrapper {
-  position: relative;
-  width: 100%;
-}
-
-.custom-card .card-img-top {
-  width: 100%;
-  height: 230px;
-  object-fit: cover;
-  object-position: center top;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  display: block;
-}
-
-.badge-icon {
-  position: absolute;
-  bottom: -14px;
-  right: 18px;
-  width: 32px;
-  height: 32px;
-  background-color: #4ecdc4;
-  border: 3px solid #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
-  z-index: 2;
-}
-
-.custom-card .card-body {
-  padding: 1.25rem 1.25rem 1.5rem 1.25rem;
-  text-align: left;
-}
-
-.custom-card .card-title {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #111111;
-  margin-bottom: 0.25rem;
-  line-height: 1.2;
-}
-
-.custom-card .card-subtitle {
-  font-size: 0.95rem;
-  font-weight: 400;
-  color: #444444;
-  margin-bottom: 0;
-  line-height: 1.3;
-}
-
-.btn-container {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  width: 100% !important;
-  margin: 35px 0 20px 0 !important;
-  position: relative !important;
-  z-index: 5 !important;
-  opacity: 0;
-  animation: subirTexto 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
-}
-
-.styled-button {
-  position: relative;
-  padding: 1.2rem 2.5rem;
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #ffffff;
-  background: linear-gradient(to bottom, #171717, #242424);
-  border-radius: 9999px;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 1), 0 10px 20px rgba(0, 0, 0, 0.4);
-  transition: all 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #292929;
-}
-
-.styled-button::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  right: -1px;
-  bottom: -1px;
-  left: -1px;
-  background: linear-gradient(to bottom, #292929, #000000);
-  z-index: -1;
-  border-radius: 9999px;
-}
-
-.styled-button:active {
-  transform: translateY(2px);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 1), 0 5px 10px rgba(0, 0, 0, 0.4);
-}
-
-.styled-button .inner-button {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(to bottom, #171717, #242424);
-  width: 45px;
-  height: 45px;
-  margin-left: 15px;
-  border-radius: 50%;
-  border: 1px solid #252525;
-}
-
-.styled-button .inner-button .icon {
-  filter: drop-shadow(0 10px 20px rgba(26, 25, 25, 0.9));
-  transition: all 0.4s ease-in-out;
-}
-
-.styled-button .inner-button .icon:hover {
-  transform: rotate(-35deg);
-}
-
-/* ========================================================== */
-/* SECCIÓN 2: CARDS DE BENEFICIOS                             */
-/* ========================================================== */
-.nueva-seccion {
-  background-color: #f4f1ea;
-  padding: 60px 20px;
-  width: 100%;
-}
-
-.features-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.feature-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 30px 20px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  transition: transform 1s ease;
-}
-
-.feature-card:hover {
-  transform: translateY(-5px);
-}
-
-.feature-card.card-animada-scroll {
-  opacity: 0;
-  transform: translateY(60px);
-}
-
-.feature-card.card-animada-scroll.en-vista {
-  animation: subirTexto 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.feature-icon {
-  color: #e63946;
-  margin-bottom: 15px;
-  display: inline-flex;
-  padding: 12px;
-  background-color: rgba(230, 57, 70, 0.08);
-  border-radius: 12px;
-}
-
-.feature-card .feature-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #111111;
-  margin-bottom: 10px;
-}
-
-.feature-card .feature-text {
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: 0.95rem;
-  color: #555555;
-  margin-bottom: 0;
-  line-height: 1.4;
-}
-
-/* ========================================================== */
-/* SECCIÓN: ¿QUIÉNES SOMOS?                                  */
-/* ========================================================== */
-.quienes-somos {
-  background-color: #f4f1ea;
-  padding: 60px 0;
-  width: 100%;
-  position: relative;
-}
-
-.quienes-somos::before {
-  content: "";
-  display: block;
-  width: 120px;
-  height: 5px;
-  background-color: #e63946;
-  margin: 0 auto 50px auto;
-  border-radius: 4px;
-}
-
-.quienes-somos-container {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 5%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.quienes-somos-info {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  width: 100%;
-  opacity: 0;
-  transform: translateY(60px);
-  transition: transform 1s ease, opacity 1s ease;
-}
-
-.quienes-somos-titulo-box {
-  background-color: #ffffff;
-  padding: 20px 35px;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  display: inline-block;
-  align-self: flex-start;
-}
-
-.quienes-somos-titulo-box h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #111111;
-  margin: 0;
-}
-
-.linea-roja-palabra {
-  position: relative;
-  display: inline-block;
-}
-
-.linea-roja-palabra::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 100%;
-  height: 5px;
-  background-color: #e63946;
-  border-radius: 4px;
-}
-
-.quienes-somos-contenido {
-  background-color: #ffffff;
-  padding: 30px 35px;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  max-width: 650px;
-  width: 100%;
-}
-
-.quienes-somos-contenido p {
-  font-family: system-ui, -apple-system, sans-serif !important;
-  font-size: 1.05rem;
-  color: #555555;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.quienes-somos-imagen-box {
-  background-color: #ffffff;
-  padding: 15px;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  width: 100%;
-  box-sizing: border-box;
-  opacity: 0;
-  transform: translateY(60px);
-  transition: transform 1s ease 0.2s, opacity 1s ease 0.2s;
-}
-
-.quienes-somos-img {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
-}
-
-.quienes-somos-info.en-vista,
-.quienes-somos-imagen-box.en-vista {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-.quienes-somos::after {
-  content: "";
-  display: block;
-  width: 120px;
-  height: 5px;
-  background-color: #e63946;
-  margin: 60px auto 0 auto;
-  border-radius: 4px;
-}
-
-/* ========================================================== */
-/* SECCIÓN: TIPOS DE TOLDOS                                   */
-/* ========================================================== */
-.toldos-section {
-  background-color: #f4f1ea;
-  padding: 10px 0 60px 0;
-  width: 100%;
-  position: relative;
-  margin-top: -20px;
-}
-
-.toldos-container {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 5%;
-  box-sizing: border-box;
-  opacity: 0;
-  transform: translateY(60px);
-  transition: transform 1s ease, opacity 1s ease;
-}
-
-.toldos-container.en-vista {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-.toldos-header-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.toldos-titulo-box {
-  background-color: #ffffff;
-  padding: 20px 35px;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  display: inline-block;
-}
-
-.toldos-titulo-box h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #111111;
-  margin: 0;
-}
-
-.toldos-tabs-nav {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-.toldo-tab-btn {
-  padding: 16px 30px;
-  background-color: #ffffff;
-  border: 2px solid #e0e0e0;
-  border-radius: 14px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #555555;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
-  transition: all 0.3s ease;
-}
-
-.toldo-tab-btn:hover {
-  border-color: #e63946;
-  color: #e63946;
-}
-
-.toldo-tab-btn.active {
-  background-color: #e63946;
-  border-color: #e63946;
-  color: #ffffff;
-  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
-}
-
-.toldo-display-container {
-  display: flex;
-  background: #ffffff;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  transition: opacity 0.3s ease;
-}
-
-.toldo-mini-card {
-  flex: 1;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.toldo-mini-card h3 {
-  font-size: 2rem;
-  color: #111111;
-  margin-bottom: 15px;
-  font-weight: 700;
-}
-
-.toldo-mini-card p {
-  font-family: system-ui, -apple-system, sans-serif !important;
-  font-size: 1.05rem;
-  color: #555555;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.toldo-image-box {
-  flex: 1;
-  min-height: 480px;
-}
-
-.toldo-image-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* ========================================================== */
-/* SECCIÓN DE VIDEO LOCAL (CORREGIDO PARA EVITAR DISTORSIÓN) */
-/* ========================================================== */
-.video-section {
-  background-color: #f4f1ea !important;
-  padding: 60px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-  width: 100%;
-}
-
-.video-main-container {
-  width: 100%;
-  max-width: 500px; /* Ancho optimizado para que los reels verticales no queden gigantes en PC */
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-}
-
-.video-header h2 {
-  font-size: 2.2rem;
-  color: #111111;
-  margin-bottom: 25px;
-  text-align: center;
-  font-weight: 700;
-}
-
-.linea-roja-decorativa {
-  width: 60px;
-  height: 3px;
-  background-color: #e63946;
-  border-radius: 2px;
-  margin: 0 auto;
-}
-
-.video-responsive {
-  position: relative;
-  width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  background: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.video-responsive video {
-  width: 100%;
-  height: auto;
-  max-height: 75vh; /* Mantiene la proporción correcta del reel sin estirarse ni deformarse */
-  display: block;
-  object-fit: contain; /* Evita recortes y deformaciones forzadas */
-}
-
-/* ========================================================== */
-/* MEDIA QUERIES GENERALES                                    */
-/* ========================================================== */
-@media (max-width: 768px) {
-  .hero-container {
-    padding: 30px 20px 0 20px;
-  }
-  .texto-animado h1 {
-    font-size: 2.2rem;
-  }
-  .texto-animado p {
-    font-size: 1rem;
-  }
-  .btn-container {
-    margin-top: 10px !important;
-    margin-bottom: 30px !important;
-  }
-  .styled-button {
-    padding: 0.75rem 1.4rem !important;
-    font-size: 0.95rem !important;
-  }
-  .toldos-section {
-    padding: 5px 0 40px 0;
-    margin-top: -10px;
-  }
-  .toldo-display-container {
-    flex-direction: column;
-  }
-  .toldo-image-box {
-    width: 100%;
-    height: 280px;
-    min-height: auto;
-  }
-  .toldos-tabs-nav {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  .toldos-tabs-nav .toldo-tab-btn:nth-child(3) {
-    grid-column: span 2;
-    max-width: 70%;
-    margin: 0 auto;
-  }
-}
-
-@media (min-width: 992px) {
-  .card-owner-container {
-    max-width: 750px;
-    margin: 40px auto;
-  }
-  .custom-card {
-    max-width: 100% !important;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border-radius: 24px;
-  }
-  .card-img-wrapper {
-    width: 50% !important;
-    height: 320px !important;
-  }
-  .custom-card .card-img-top {
-    height: 320px !important;
-  }
-  .custom-card .card-body {
-    width: 50% !important;
-    padding: 2.5rem !important;
-  }
-  .features-container {
-    flex-direction: row;
-    max-width: 1100px;
-    justify-content: center;
-  }
-  .feature-card {
-    flex: 1;
-    max-width: 350px;
-    padding: 40px 30px;
-  }
-  .quienes-somos-container {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .quienes-somos-info {
-    width: 55%;
-  }
-  .quienes-somos-imagen-box {
-    width: 40%;
-  }
-}
-
-/* ========================================================== */
-/* SECCIÓN COMBINADA: BENEFICIOS + VIDEO VERTICAL             */
-/* ========================================================== */
-.seccion-resultados-beneficios {
-    background-color: #f4f1ea !important;
-    padding: 60px 0;
-    width: 100%;
-    position: relative;
-}
-
-/* Línea roja superior exacta a tus otras secciones */
-.seccion-resultados-beneficios::before {
-    content: "";
-    display: block;
-    width: 120px;
-    height: 5px;
-    background-color: #e63946;
-    margin: 0 auto 50px auto;
-    border-radius: 4px;
-}
-
-.resultados-beneficios-container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 5%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.columna-beneficios-estilo {
-    display: flex;
-    flex-direction: column;
-    gap: 40px; /* Aumentamos de 25px a 40px para separarlas del título */
-    width: 100%;
-}
-
-.titulo-caja-estilo {
-    background-color: #ffffff;
-    padding: 20px 35px;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-    display: inline-block;
-    align-self: flex-start;
-    margin-bottom: 10px; /* Margen extra de seguridad abajo del título */
-}
-
-.titulo-caja-estilo h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #111111;
-    margin: 0;
-}
-
-.tarjetas-apiladas {
-    display: flex;
-    flex-direction: column;
-    gap: 24px; /* Espacio cómodo entre tarjeta y tarjeta */
-    max-width: 550px;
-}
-
-/* Efecto escalonado para la tarjeta central */
-.offset-derecha {
-    margin-left: 30px;
-}
-
-.columna-video-estilo {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-/* Línea roja inferior exacta a tus otras secciones */
-.seccion-resultados-beneficios::after {
-    content: "";
-    display: block;
-    width: 120px;
-    height: 5px;
-    background-color: #e63946;
-    margin: 60px auto 0 auto;
-    border-radius: 4px;
-}
-
-/* Ajustes Responsive */
-@media (min-width: 992px) {
-    .resultados-beneficios-container {
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-between;
-    }
-    
-    .columna-beneficios-estilo {
-        width: 52%;
-    }
-    
-    .columna-video-estilo {
-        width: 44%;
-        justify-content: flex-end;
-    }
-    
-    .video-main-container {
-        max-width: 450px;
-        margin: 0;
-    }
-}
-
-@media (max-width: 768px) {
-    .offset-derecha {
-        margin-left: 0;
-    }
-    .titulo-caja-estilo h2 {
-        font-size: 2rem;
-    }
-}
+/* E.R Toldos & Persianas — paleta: azul marino, verde lona, amarillo sol */
+:root{--navy:#0D1B2A;--teal:#0F6E5C;--teal-d:#0A4F42;--sun:#F2A900;--bg:#F4F5F1;--ink:#14202B;--mute:#4F5D6A;--line:#D9DDD6;--r:10px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font-family:'Satoshi',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:'Zodiak',serif;line-height:1.15;margin:0 0 .5em;font-weight:700}
+h2{font-size:clamp(1.9rem,3.5vw,2.8rem)}
+img{max-width:100%}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.ic{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* Navbar */
+#header-container{position:sticky;top:0;z-index:50}
+.custom-navbar{background:var(--navy)}
+.custom-navbar .navbar-brand{color:#fff;font-family:'Zodiak',serif;font-weight:700}
+.custom-navbar .nav-link{color:#dbe3ea;padding:.5rem .85rem;border-bottom:2px solid transparent;transition:.2s}
+.custom-navbar .nav-link:hover{color:#fff;border-bottom-color:var(--sun)}
+.custom-navbar .navbar-toggler{border-color:#ffffff55}
+.custom-navbar .navbar-toggler-icon{filter:invert(1)}
+
+/* Borde de toldo: el detalle propio de la marca */
+.valance{height:34px;background:repeating-linear-gradient(90deg,var(--teal) 0 36px,#fff 36px 72px);
+-webkit-mask:linear-gradient(#000,#000) 0 0/100% 16px no-repeat,radial-gradient(circle at 18px 0,#000 18px,transparent 19px) 0 16px/36px 18px repeat-x;
+mask:linear-gradient(#000,#000) 0 0/100% 16px no-repeat,radial-gradient(circle at 18px 0,#000 18px,transparent 19px) 0 16px/36px 18px repeat-x}
+.valance.abajo{transform:scaleY(-1)}
+
+/* Botones */
+.btn-sol,.btn-ghost{display:inline-flex;align-items:center;gap:.6rem;padding:.9rem 1.6rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--sun);cursor:pointer;transition:.2s;font-size:1.05rem}
+.btn-sol{background:var(--sun);color:var(--navy)}
+.btn-sol:hover{transform:translateY(-2px);box-shadow:0 8px 20px #0004}
+.btn-ghost{background:transparent;color:#fff;border-color:#ffffff88}
+.btn-ghost:hover{border-color:#fff;color:#fff}
+
+/* Hero */
+.hero{color:#fff;background:linear-gradient(105deg,rgba(13,27,42,.94) 35%,rgba(13,27,42,.55)),url('/ertoldospersianas/imagenes/fondo.png') center/cover}
+.hero-in{max-width:1200px;margin:0 auto;padding:56px 5% 96px;display:grid;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.3rem,5.2vw,4.3rem)}
+.hero p{font-size:1.25rem;max-width:34ch;color:#dbe3ea}
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.hero-in>*{animation:rise .9s cubic-bezier(.22,1,.36,1) both}
+.hero-in>*:nth-child(2){animation-delay:.25s}
+@keyframes rise{from{opacity:0;transform:translateY(32px)}}
+.owner{background:#fff;color:var(--ink);border-radius:var(--r);overflow:hidden;max-width:340px;justify-self:center;width:100%;box-shadow:0 20px 40px #0006}
+.owner img{width:100%;height:300px;object-fit:cover;object-position:center top;display:block}
+.owner-body{padding:1.1rem 1.3rem 1.4rem;border-top:5px solid var(--sun)}
+.owner h3{font-size:1.4rem;margin:0}
+.owner p{color:var(--mute);font-size:.95rem;margin:.2rem 0 0;max-width:none}
+
+/* Secciones */
+.sec{max-width:1200px;margin:0 auto;padding:72px 5%}
+.sec-head{max-width:60ch;margin-bottom:32px}
+.sec-head p{color:var(--mute);font-size:1.1rem;margin:0}
+.ventajas{display:grid;gap:28px;padding-top:56px;padding-bottom:16px}
+.vj{display:flex;gap:16px}
+.vj .ico{width:48px;height:48px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;flex:none}
+.vj h3{font-size:1.2rem;margin:0 0 .2rem}
+.vj p{margin:0;color:var(--mute);font-size:.98rem}
+.nos{display:grid;gap:36px;align-items:center}
+.nos p{font-size:1.1rem;color:var(--mute);max-width:60ch}
+.nos img{width:100%;height:440px;object-fit:cover;border-radius:var(--r);display:block}
+.checks{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+.checks li{display:flex;gap:10px;align-items:center;font-weight:500}
+.checks .ic{color:var(--teal)}
+
+/* Tipos de toldos */
+.toldos-tabs-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.toldo-tab-btn{padding:.7rem 1.3rem;background:transparent;border:2px solid var(--line);border-radius:999px;font:600 1rem 'Satoshi',sans-serif;color:var(--mute);cursor:pointer;transition:.2s}
+.toldo-tab-btn:hover{border-color:var(--teal);color:var(--teal)}
+.toldo-tab-btn.active{background:var(--teal);border-color:var(--teal);color:#fff}
+.toldo-display-container{display:grid;background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 10px 30px #0d1b2a14;transition:opacity .25s}
+.toldo-mini-card{padding:36px;display:flex;flex-direction:column;justify-content:center}
+.toldo-mini-card h3{font-size:2rem}
+.toldo-mini-card p{color:var(--mute);font-size:1.08rem;margin:0}
+.toldo-image-box{min-height:320px}
+.toldo-image-box img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Proceso (sí es una secuencia, por eso va numerado) */
+.pasos{list-style:none;counter-reset:p;padding:0;margin:0;display:grid;gap:28px}
+.pasos li{counter-increment:p;border-top:4px solid var(--teal);padding-top:16px}
+.pasos li::before{content:counter(p);font:700 2.4rem 'Zodiak',serif;color:var(--sun);display:block;line-height:1}
+.pasos h3{font-size:1.25rem;margin:.4rem 0 .3rem}
+.pasos p{margin:0;color:var(--mute)}
+
+/* Beneficios + video (el bloque del video no se tocó) */
+.seccion-resultados-beneficios{background:var(--navy);color:#fff}
+.resultados-beneficios-container{max-width:1200px;margin:0 auto;padding:72px 5%;display:grid;gap:44px;align-items:start}
+.seccion-resultados-beneficios .toldos-container{padding:0}
+.titulo-caja-estilo h2{margin-bottom:24px}
+.tarjetas-apiladas{display:grid;gap:16px}
+.seccion-resultados-beneficios .feature-card{background:#ffffff0f;border:1px solid #ffffff22;border-radius:var(--r);padding:22px;display:grid;grid-template-columns:auto 1fr;column-gap:16px}
+.feature-icon{grid-row:span 2;width:48px;height:48px;border-radius:50%;background:var(--sun);color:var(--navy);display:grid;place-items:center}
+.feature-title{font-size:1.2rem;margin:0}
+.feature-text{margin:0;color:#c9d3dc}
+.linea-roja-palabra{color:var(--teal)}
+.columna-video-estilo{display:flex;justify-content:center}
+.video-main-container{width:100%;max-width:420px;background:#fff;color:var(--ink);border-radius:var(--r);padding:24px}
+.video-header h2{font-size:1.6rem;text-align:center;margin-bottom:18px}
+.video-responsive{border-radius:8px;overflow:hidden;background:#000;display:flex;justify-content:center}
+.video-responsive video{width:100%;height:auto;max-height:70vh;display:block;object-fit:contain}
+
+/* Clientes */
+.cards3{display:grid;gap:20px}
+.cliente{position:relative;margin:0;border-radius:var(--r);overflow:hidden;min-height:380px;background:var(--navy)}
+.cliente img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.cliente:hover img{transform:scale(1.04)}
+.cliente figcaption{position:absolute;inset:auto 0 0;padding:60px 22px 22px;background:linear-gradient(transparent,rgba(13,27,42,.92));color:#fff}
+.cliente h3{font-size:1.4rem;margin:0}
+.cliente p{margin:.2rem 0 0;color:#dbe3ea;font-size:.95rem}
+
+/* Contacto */
+.contacto{background:var(--teal-d);color:#fff}
+.contacto-in{max-width:1200px;margin:0 auto;padding:72px 5%;display:grid;gap:40px}
+.contacto p{color:#cfe3de;font-size:1.1rem;max-width:44ch}
+.datos{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}
+.datos li{display:flex;gap:12px;align-items:center}
+.datos .ic{color:var(--sun)}
+.form-ct{background:#fff;color:var(--ink);border-radius:var(--r);padding:28px;display:grid;gap:14px}
+.form-ct label{font-weight:700;font-size:.95rem;display:grid;gap:6px}
+.form-ct input,.form-ct select,.form-ct textarea{font:inherit;padding:.75rem .9rem;border:2px solid var(--line);border-radius:8px;background:#fff}
+.form-ct input:focus,.form-ct select:focus,.form-ct textarea:focus{border-color:var(--teal);outline:none}
+
+/* Preguntas */
+.accordion{--bs-accordion-border-color:var(--line);--bs-accordion-active-bg:#fff;--bs-accordion-active-color:var(--teal);--bs-accordion-btn-focus-box-shadow:0 0 0 3px #F2A90088}
+.accordion-button{font:700 1.1rem 'Zodiak',serif}
+.accordion-body{color:var(--mute)}
+
+footer{background:var(--navy);color:#9fb0c0;text-align:center;padding:28px 5%;font-size:.95rem}
+
+/* Aparición al hacer scroll */
+.card-animada-scroll{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s cubic-bezier(.22,1,.36,1)}
+.card-animada-scroll.en-vista{opacity:1;transform:none}
+
+@media(min-width:768px){.cards3,.ventajas{grid-template-columns:repeat(3,1fr)}.pasos{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:992px){
+ .hero-in{grid-template-columns:1.25fr .75fr}
+ .nos{grid-template-columns:1fr 1fr}
+ .toldo-display-container{grid-template-columns:1fr 1fr}
+ .toldo-image-box{min-height:460px}
+ .resultados-beneficios-container{grid-template-columns:1.1fr .9fr}
+ .columna-video-estilo{justify-content:flex-end}
+ .contacto-in{grid-template-columns:1fr 1fr;align-items:center}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.card-animada-scroll{opacity:1;transform:none}}

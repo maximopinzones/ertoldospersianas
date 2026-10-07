@@ -41,17 +41,22 @@ document.addEventListener("DOMContentLoaded", function () {
       {
           title: "Toldo Retráctil",
           desc: "Sistema extensible sin columnas fijas para mantener la vista libre y regular la entrada de sol a tu medida.",
-          img: "/ertoldospersianas/imagenes/toldo retractil.jpg"
+          img: "/ertoldospersianas/imagenes/toldo retractil.png"
       },
       {
           title: "Toldo Vertical",
           desc: "Ideal para balcones y terrazas. Protege del viento, la lluvia lateral y los rayos UV sin perder visibilidad hacia el exterior.",
-          img: "/ertoldospersianas/imagenes/toldo vertical.jpg"
+          img: "/ertoldospersianas/imagenes/toldo vertical.png"
       },
       {
           title: "Persiana Exterior",
           desc: "Máximo control térmico y de privacidad para ventanas y ventanales. Ayuda a mantener fresco el interior de tu hogar.",
-          img: "/ertoldospersianas/imagenes/persiana exterior.jpg"
+          img: "/ertoldospersianas/imagenes/persiana exterior.png"
+      },
+      {
+          title: "Toldo Comercial",
+          desc: "Toldo fijo para fachadas de cafés, restaurantes y locales: resguarda la entrada, da sombra a tu terraza y refuerza tu imagen.",
+          img: "/ertoldospersianas/imagenes/toldo comercial.png"
       }
   ];
 
@@ -82,5 +87,17 @@ document.addEventListener("DOMContentLoaded", function () {
               }, 200);
           });
       });
+  }
+
+  // 4. Formulario de contacto -> WhatsApp (cambia el número, con código de país y sin +)
+  const WA_NUMERO = "58XXXXXXXXXX";
+  const form = document.getElementById("formContacto");
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const d = new FormData(form);
+      const msg = `Hola, soy ${d.get("nombre")}. Me interesa: ${d.get("producto")}. ${d.get("mensaje") || ""}`.trim();
+      window.open(`https://wa.me/${WA_NUMERO}?text=${encodeURIComponent(msg)}`, "_blank");
+    });
   }
 });
