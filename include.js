@@ -41,17 +41,17 @@ document.addEventListener("DOMContentLoaded", function () {
       {
           title: "Toldo Retráctil",
           desc: "Sistema extensible sin columnas fijas para mantener la vista libre y regular la entrada de sol a tu medida.",
-          img: "/ertoldospersianas/imagenes/toldo retractil.png"
+          img: "/ertoldospersianas/imagenes/toldo retractil.jpg"
       },
       {
           title: "Toldo Vertical",
           desc: "Ideal para balcones y terrazas. Protege del viento, la lluvia lateral y los rayos UV sin perder visibilidad hacia el exterior.",
-          img: "/ertoldospersianas/imagenes/toldo vertical.png"
+          img: "/ertoldospersianas/imagenes/toldo vertical.jpg"
       },
       {
           title: "Persiana Exterior",
           desc: "Máximo control térmico y de privacidad para ventanas y ventanales. Ayuda a mantener fresco el interior de tu hogar.",
-          img: "/ertoldospersianas/imagenes/persiana exterior.png"
+          img: "/ertoldospersianas/imagenes/persiana exterior.jpg"
       },
       {
           title: "Toldo Comercial",
