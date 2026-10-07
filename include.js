@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // 4. Formulario de contacto -> WhatsApp (cambia el número, con código de país y sin +)
-  const WA_NUMERO = "58XXXXXXXXXX";
+  const WA_NUMERO = "584220963926";
   const form = document.getElementById("formContacto");
   if (form) {
     form.addEventListener("submit", (e) => {
